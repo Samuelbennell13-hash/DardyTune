@@ -4,8 +4,6 @@ project(DardyTune VERSION 1.0.0)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# JUCE_DIR is passed by GitHub Actions as -DJUCE_DIR=...
-# For local builds you can set it yourself.
 if (NOT DEFINED JUCE_DIR)
   message(FATAL_ERROR "JUCE_DIR not set. Pass -DJUCE_DIR=path/to/JUCE")
 endif()
@@ -25,6 +23,9 @@ juce_add_plugin(DardyTune
     FORMATS VST3
     PRODUCT_NAME "DardyTune"
 )
+
+# ✅ THIS is the missing fix for JuceHeader.h
+juce_generate_juce_header(DardyTune)
 
 target_sources(DardyTune PRIVATE
     DardyTune.cpp
