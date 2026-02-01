@@ -21,6 +21,7 @@ juce_add_plugin(DardyTune
     PLUGIN_MANUFACTURER_CODE SamB
     PLUGIN_CODE Dtdy
     FORMATS VST3
+    VST3_AUTO_MANIFEST FALSE
     PRODUCT_NAME "DardyTune"
 )
 
